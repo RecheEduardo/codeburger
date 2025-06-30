@@ -10,10 +10,10 @@ public class Hamburgueria extends JFrame {
     public Hamburgueria() {
         this.setTitle("Sistema de Login");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(350, 650);
+        this.setSize(400, 650);
         this.setLocationRelativeTo(null);
 
-        final Font fonteAppBold = new Font("Century Gothic", Font.BOLD, 24);
+        final Font fonteAppBold = new Font("Century Gothic", Font.BOLD, 26);
         final Font fonteAppRegular = new Font("Century Gothic", Font.PLAIN, 24);
 
         JPanel painelLogin = new JPanel();
@@ -21,16 +21,15 @@ public class Hamburgueria extends JFrame {
         painelLogin.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
         this.add(painelLogin);
 
-        JLabel labelHamburgueria = new JLabel(
-	        "<html>"
-                + "<div style='text-align: center;'>"
-                    + "Code Burger<br><br>Sua hamburgueria predileta!"
-                + "</div>"
-           +"</html>"
-        );
-        labelHamburgueria.setFont(fonteAppBold);
-        labelHamburgueria.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel labelTitulo = new JLabel("<html>Code Burger</html>");
+        labelTitulo.setFont(fonteAppBold);
+        labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel labelSubTitulo = new JLabel("Sua Hamburgueria predileta!");
+        labelSubTitulo.setFont(fonteAppRegular);
+        labelSubTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
         
+        // SEPARADOR DE SEÇÃO
         JSeparator separador = new JSeparator(SwingConstants.HORIZONTAL);
         separador.setForeground(Color.BLACK);
         separador.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1)); // faz a linha preencher horizontalmente
@@ -64,18 +63,25 @@ public class Hamburgueria extends JFrame {
         botaoLogin.setMaximumSize(new Dimension(1280, 50));
 
         // Adiciona espaçamento entre os elementos
-        painelLogin.add(labelHamburgueria);
+        painelLogin.add(labelTitulo);
+        painelLogin.add(labelSubTitulo);
         painelLogin.add(Box.createVerticalStrut(15));
+        
         painelLogin.add(separador);
         painelLogin.add(Box.createVerticalStrut(10));
+        
         painelLogin.add(labelUsuario);
         painelLogin.add(Box.createVerticalStrut(10));
+        
         painelLogin.add(campoUsuario);
         painelLogin.add(Box.createVerticalStrut(20));
+        
         painelLogin.add(labelSenha);
         painelLogin.add(Box.createVerticalStrut(10));
+        
         painelLogin.add(campoSenha);
         painelLogin.add(Box.createVerticalStrut(20));
+        
         painelLogin.add(botaoLogin);
 
         this.setVisible(true);
