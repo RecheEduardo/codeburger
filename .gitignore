@@ -1,1 +1,18 @@
-/bin/
+# Ignora a pasta de configurações do Eclipse que não pertence ao projeto
+.metadata/
+
+# Ignora a pasta bin com arquivos compilados
+bin/
+
+# Ignora arquivos de bloqueio do Eclipse
+.lock
+.lock_info
+version.ini
+
+# Ignora arquivos temporários de sistema
+*.log
+*.tmp
+
+# Ignora arquivos do macOS ou Windows
+.DS_Store
+Thumbs.db

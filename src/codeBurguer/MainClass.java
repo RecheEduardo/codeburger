@@ -11,7 +11,7 @@ public class MainClass {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);  
 
-		JLabel label = new JLabel("Bem-vindo!", JLabel.CENTER);
+		JLabel label = new JLabel("Bee-vindo!", JLabel.CENTER);
 		frame.add(label);
 
 		frame.setVisible(true);
