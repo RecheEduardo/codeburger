@@ -2,12 +2,14 @@ package codeBurguer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Hamburgueria extends JFrame {
+public class TelaLogin extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    public Hamburgueria() {
+    public TelaLogin() {
         this.setTitle("Sistema de Login");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 650);
@@ -61,6 +63,15 @@ public class Hamburgueria extends JFrame {
         botaoLogin.setFont(fonteAppBold);
         botaoLogin.setAlignmentX(Component.LEFT_ALIGNMENT);
         botaoLogin.setMaximumSize(new Dimension(1280, 50));
+        
+        botaoLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            		new TelaMenuPrincipal().setVisible(true);
+                    dispose();
+        }});
+       
+
 
         // Adiciona espaçamento entre os elementos
         painelLogin.add(labelTitulo);
