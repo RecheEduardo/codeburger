@@ -41,6 +41,12 @@ public class TelaCrudProdutos extends JFrame {
         painelConteudo.add(separador);
         painelConteudo.add(Box.createVerticalStrut(10));
 
+        // CONTEUDO PRINCIPAL
+        JLabel labelSubTitulo = new JLabel("O CRUD dos Produtos vai acontecer aqui!");
+        labelSubTitulo.setFont(fonteAppRegular);
+        labelSubTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
+        painelConteudo.add(labelSubTitulo);
+
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         painelBotao.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
