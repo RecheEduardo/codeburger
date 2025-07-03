@@ -3,6 +3,9 @@ package br.com.hamburgueria.view;
 import javax.swing.*;
 import java.awt.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class TelaCrudPedidos extends JFrame{
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +47,15 @@ public class TelaCrudPedidos extends JFrame{
 
         // BOTAO DE VOLTAR
         JButton botaoVoltar = new JButton("Voltar");
-        botaoVoltar.setFont(fonteAppRegular);
+        botaoVoltar.setFont(fonteAppBold);
+        botaoVoltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                  new TelaMenuPrincipal().setVisible(true);
+                  dispose();
+            }
+        });
+        
         painelBotao.add(botaoVoltar);
         this.add(painelBotao, BorderLayout.SOUTH);
 	}
