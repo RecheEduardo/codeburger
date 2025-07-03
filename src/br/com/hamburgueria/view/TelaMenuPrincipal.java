@@ -15,6 +15,8 @@ public class TelaMenuPrincipal extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 650);
         this.setLocationRelativeTo(null);
+
+        this.setLayout(new BorderLayout());
         
         final Font fonteAppBold = new Font("Century Gothic", Font.BOLD, 36);
         final Font fonteAppRegular = new Font("Century Gothic", Font.PLAIN, 24);
@@ -22,7 +24,7 @@ public class TelaMenuPrincipal extends JFrame {
         JPanel painelLogin = new JPanel();
         painelLogin.setLayout(new BoxLayout(painelLogin, BoxLayout.Y_AXIS));
         painelLogin.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        this.add(painelLogin);
+        this.add(painelLogin, BorderLayout.CENTER); // Add o painel de conteúdo principal ao centro
 
         // Header Principal
         JLabel labelTitulo = new JLabel("<html>Menu principal</html>");
@@ -97,5 +99,23 @@ public class TelaMenuPrincipal extends JFrame {
 
         painelLogin.add(botaoProdutos);
         painelLogin.add(Box.createVerticalStrut(15));
+
+      // RODAPE DA JANELA
+      JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      painelBotao.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+
+      // BOTAO DE SAIR
+      JButton botaoVoltar = new JButton("Sair");
+      botaoVoltar.setFont(fonteAppBold);
+      botaoVoltar.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+                new TelaLogin().setVisible(true);
+                dispose();
+          }
+      });
+      
+      painelBotao.add(botaoVoltar);
+      this.add(painelBotao, BorderLayout.SOUTH);
 	}
 }
