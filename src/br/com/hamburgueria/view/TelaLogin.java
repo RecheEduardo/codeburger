@@ -2,6 +2,8 @@ package br.com.hamburgueria.view;
 
 import javax.swing.*;
 
+import br.com.hamburgueria.dao.UsuarioDAO;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,11 +70,17 @@ public class TelaLogin extends JFrame {
         botaoLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	UsuarioDAO dao =  new UsuarioDAO();
+            	String login = campoUsuario.getText();
+            	String senha = new String(campoSenha.getPassword());
+            	
+            	if(dao.verificarLogin(login, senha)) {
             		new TelaMenuPrincipal().setVisible(true);
                     dispose();
+            	} else {
+                    JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
+                }
         }});
-       
-
 
         // Adiciona espaçamento entre os elementos
         painelLogin.add(labelTitulo);
