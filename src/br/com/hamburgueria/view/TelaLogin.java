@@ -3,7 +3,7 @@ package br.com.hamburgueria.view;
 import javax.swing.*;
 
 import br.com.hamburgueria.dao.UsuarioDAO;
-
+import br.com.hamburgueria.model.Usuario;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,9 +73,10 @@ public class TelaLogin extends JFrame {
             	UsuarioDAO dao =  new UsuarioDAO();
             	String login = campoUsuario.getText();
             	String senha = new String(campoSenha.getPassword());
+            	Usuario userLogged = dao.verificarLogin(login, senha); 
             	
-            	if(dao.verificarLogin(login, senha)) {
-            		new TelaMenuPrincipal().setVisible(true);
+            	if(dao.verificarLogin(login, senha) != null) {
+            		new TelaMenuPrincipal(userLogged).setVisible(true);
                     dispose();
             	} else {
                     JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");

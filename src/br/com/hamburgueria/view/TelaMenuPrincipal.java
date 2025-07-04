@@ -1,6 +1,9 @@
 package br.com.hamburgueria.view;
 
 import javax.swing.*;
+
+import br.com.hamburgueria.model.Usuario;
+
 import java.awt.*;
 
 import java.awt.event.ActionEvent;
@@ -10,9 +13,11 @@ public class TelaMenuPrincipal extends JFrame {
  
 	private static final long serialVersionUID = 1L;
 
-	public TelaMenuPrincipal() {
-		this.setTitle("Menu de operações");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public TelaMenuPrincipal(Usuario usuario) {
+        final String nomeUsuario = usuario.getNome();
+      
+        this.setTitle("Menu de operações");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 650);
         this.setLocationRelativeTo(null);
 
@@ -32,7 +37,7 @@ public class TelaMenuPrincipal extends JFrame {
         labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
         
         // SUBTITULO
-        JLabel labelMenuOptions = new JLabel("<html>Olá usuário! Quais dados deseja acessar?</html>");
+        JLabel labelMenuOptions = new JLabel("Olá " + nomeUsuario + "! Quais dados deseja acessar?");
         labelMenuOptions.setFont(fonteAppRegular);
         labelMenuOptions.setAlignmentX(Component.LEFT_ALIGNMENT);
         
@@ -44,7 +49,7 @@ public class TelaMenuPrincipal extends JFrame {
         botaoEstoque.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-                 new TelaCrudEstoque().setVisible(true);
+                 new TelaCrudEstoque(usuario).setVisible(true);
                  dispose();
            }
          });
@@ -57,7 +62,7 @@ public class TelaMenuPrincipal extends JFrame {
         botaoPedidos.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-                 new TelaCrudPedidos().setVisible(true);
+                 new TelaCrudPedidos(usuario).setVisible(true);
                  dispose();
            }
          });
@@ -71,7 +76,7 @@ public class TelaMenuPrincipal extends JFrame {
         botaoProdutos.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
-	            new TelaCrudProdutos().setVisible(true);
+	            new TelaCrudProdutos(usuario).setVisible(true);
 	            dispose();
 	        }
     	});

@@ -1,6 +1,9 @@
 package br.com.hamburgueria.view;
 
 import javax.swing.*;
+
+import br.com.hamburgueria.model.Usuario;
+
 import java.awt.*;
 
 import java.awt.event.ActionEvent;
@@ -9,7 +12,7 @@ import java.awt.event.ActionListener;
 public class TelaCrudEstoque extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	public TelaCrudEstoque() {
+	public TelaCrudEstoque(Usuario usuario) {
 		this.setTitle("Controle de Estoque");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 650);
@@ -57,7 +60,7 @@ public class TelaCrudEstoque extends JFrame {
         botaoVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                  new TelaMenuPrincipal().setVisible(true);
+                  new TelaMenuPrincipal(usuario).setVisible(true);
                   dispose();
             }
         });

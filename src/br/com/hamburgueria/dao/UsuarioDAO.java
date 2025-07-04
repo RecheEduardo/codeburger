@@ -3,13 +3,15 @@ package br.com.hamburgueria.dao;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+import br.com.hamburgueria.model.Usuario;
+
 public class UsuarioDAO {
 	
-	public boolean verificarLogin(String login, String senha) {
+	public Usuario verificarLogin(String login, String senha) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		boolean check = false;
+		Usuario usuario = null;
 	    
 		try {
 	        conn = ConnectionFactory.getConnection();
@@ -20,7 +22,11 @@ public class UsuarioDAO {
 	        rs = ps.executeQuery();
 	        
 	        if(rs.next()) {
-	        	check = true;
+	        	usuario = new Usuario();
+				usuario.setID(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setLogin(rs.getString("login"));
+				usuario.setSenha(rs.getString("senha"));
 	        }
 	    } catch (SQLException ex) {
 	    	JOptionPane.showMessageDialog(null, "Erro no banco de dados: " + ex.getMessage());
@@ -34,6 +40,6 @@ public class UsuarioDAO {
 	            JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão: " + ex.getMessage());
 	        }
 	    }
-		return check;
+		return usuario;
 	}
 }
