@@ -33,8 +33,19 @@ CREATE TABLE estoque (
     -- FOREIGN KEY (idFornecedor) REFERENCES fornecedores(idFornecedor)
 );
 
-INSERT INTO usuarios (nomeUsuario, loginUsuario, senhaUsuario) VALUES ('Cleber', 'CleberSilvaProfessor', '1234');
-INSERT INTO usuarios (nomeUsuario, loginUsuario, senhaUsuario) VALUES ('Eduardo', 'Eduardo', '1234');
-INSERT INTO usuarios (nomeUsuario, loginUsuario, senhaUsuario) VALUES ('Daniel', 'Daniel', '1234');
+INSERT INTO usuarios (nomeUsuario, loginUsuario, senhaUsuario) VALUES 
+('Cleber', 'CleberSilvaProfessor', '1234'),
+('Eduardo', 'Eduardo', '1234'),
+('Daniel', 'Daniel', '1234');
+
+INSERT INTO produtos (nomeProduto, tipoProduto, preco, descricao) VALUES 
+('Burger Clássico', 'Sanduíche', 19.90, 'Pão artesanal, hambúrguer 180g, alface, tomate e maionese da casa'),
+('Cheddar Bacon', 'Sanduíche', 24.90, 'Pão australiano, hambúrguer 180g, cheddar cremoso e bacon crocante'),
+('Batata Rústica', 'Acompanhamento', 12.00, 'Batatas com casca temperadas com páprica e ervas'),
+('Refrigerante Lata', 'Bebida', 6.00, 'Coca-Cola, Guaraná ou Sprite - 350ml'),
+('Milkshake Oreo', 'Sobremesa', 16.50, 'Milkshake de baunilha com pedaços de Oreo e chantilly');
+
 
 SELECT * FROM usuarios;
+
+DROP DATABASE hamburgueria_db;
