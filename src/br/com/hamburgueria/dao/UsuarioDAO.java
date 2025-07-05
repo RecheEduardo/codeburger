@@ -15,7 +15,7 @@ public class UsuarioDAO {
 	    
 		try {
 	        conn = ConnectionFactory.getConnection();
-	        String sql = "SELECT * FROM usuarios where login = ? AND senha = ?";
+	        String sql = "SELECT * FROM usuarios where loginUsuario = ? AND senhaUsuario = ?";
 	        ps = conn.prepareStatement(sql);
 	        ps.setString(1, login);
 	        ps.setString(2, senha);
@@ -23,10 +23,10 @@ public class UsuarioDAO {
 	        
 	        if(rs.next()) {
 	        	usuario = new Usuario();
-				usuario.setID(rs.getInt("id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setLogin(rs.getString("login"));
-				usuario.setSenha(rs.getString("senha"));
+				usuario.setID(rs.getInt("idUsuario"));
+				usuario.setNome(rs.getString("nomeUsuario"));
+				usuario.setLogin(rs.getString("loginUsuario"));
+				usuario.setSenha(rs.getString("senhaUsuario"));
 	        }
 	    } catch (SQLException ex) {
 	    	JOptionPane.showMessageDialog(null, "Erro no banco de dados: " + ex.getMessage());
