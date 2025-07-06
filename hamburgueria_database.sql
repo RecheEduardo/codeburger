@@ -73,4 +73,21 @@ INSERT INTO estoque (nomeItem, quantidade, validade, idFornecedor) VALUES
 ('Maionese da Casa', 60, '2025-07-14', 3),
 ('Molho Barbecue', 50, '2025-07-25', 3);
 
+INSERT INTO pedidos (idUsuario, dataPedido, statusPedido) VALUES
+(1, '2025-07-01 12:30:00', 'Pendente'),
+(2, '2025-07-01 13:15:00', 'Entregue'),
+(1, '2025-07-02 18:45:00', 'Cancelado'),
+(3, '2025-07-03 11:10:00', 'Entregue'),
+(2, '2025-07-03 19:30:00', 'Pendente'),
+(1, '2025-07-04 12:00:00', 'Entregue'),
+(2, '2025-07-04 12:45:00', 'Pendente'),
+(3, '2025-07-05 13:10:00', 'Entregue'),
+(1, '2025-07-05 14:00:00', 'Cancelado'),
+(3, '2025-07-06 17:20:00', 'Entregue'),
+(2, '2025-07-06 18:00:00', 'Pendente'),
+(1, '2025-07-07 19:00:00', 'Entregue'),
+(3, '2025-07-08 12:15:00', 'Entregue'),
+(2, '2025-07-08 13:30:00', 'Cancelado'),
+(1, '2025-07-09 14:45:00', 'Pendente');
+
 SELECT * FROM usuarios;
