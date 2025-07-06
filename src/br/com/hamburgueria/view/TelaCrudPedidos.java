@@ -2,9 +2,9 @@ package br.com.hamburgueria.view;
 
 import javax.swing.*;
 
+import br.com.hamburgueria.model.Usuario;
 import br.com.hamburgueria.dao.PedidoDAO;
 import br.com.hamburgueria.model.Pedido;
-import br.com.hamburgueria.model.Usuario;
 
 import java.awt.*;
 import java.util.List;
@@ -20,7 +20,6 @@ public class TelaCrudPedidos extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 650);
         this.setLocationRelativeTo(null);
-
         this.setLayout(new BorderLayout());
         
         final Font fonteAppBold = new Font("Century Gothic", Font.BOLD, 36);
@@ -31,7 +30,7 @@ public class TelaCrudPedidos extends JFrame{
         painelConteudo.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
         this.add(painelConteudo, BorderLayout.CENTER); // Add o painel de conteúdo principal ao centro
         
-        // HEADER DA JANELA
+        // -------------------------------- HEADER DA JANELA --------------------------------
         JLabel labelTitulo = new JLabel("<html>Operações de Pedidos</html>");
         labelTitulo.setFont(fonteAppBold);
         labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -44,20 +43,21 @@ public class TelaCrudPedidos extends JFrame{
         separador.setForeground(Color.BLACK);
         separador.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1)); // faz a linha preencher horizontalmente
         painelConteudo.add(separador);
+        // -------------------------------- FIM DO HEADER DA JANELA -------------------------
 
         painelConteudo.add(Box.createVerticalStrut(10));
 
-        // CONTEUDO PRINCIPAL
+        // -------------------------------- CONTEUDO PRINCIPAL --------------------------------
         JPanel painelConteudoPrincipal = new JPanel();
         painelConteudoPrincipal.setLayout(new BoxLayout(painelConteudoPrincipal, BoxLayout.Y_AXIS));
         painelConteudo.add(painelConteudoPrincipal);
 
-        // -------------------- TABELA DE PEDIDOS --------------------
+        // ----------------------- TABELA DE PEDIDOS -----------------------
         JLabel labelTituloTabelaPedidos = new JLabel("• Tabela de Pedidos:");
         labelTituloTabelaPedidos.setFont(fonteAppRegular);
         labelTituloTabelaPedidos.setAlignmentX(Component.LEFT_ALIGNMENT);
-
         painelConteudoPrincipal.add(labelTituloTabelaPedidos);
+        
         painelConteudoPrincipal.add(Box.createVerticalStrut(15));
         
         String[] camposPedidos = {"ID", "ID do Usuário", "Data do Pedido", "Status atual"};
@@ -86,22 +86,39 @@ public class TelaCrudPedidos extends JFrame{
         Dimension dimensaoScrollPane = new Dimension(Integer.MAX_VALUE, alturaTabelaMaxima);
         scrollPane.setPreferredSize(dimensaoScrollPane);
         scrollPane.setMaximumSize(dimensaoScrollPane);
-       
+        
+        // adiciona a tabela no conteudo principal
         painelConteudoPrincipal.add(scrollPane);
-        // ----------------- FIM DA TABELA DE PEDIDOS -----------------
+        // -------------------- FIM DA TABELA DE PEDIDOS ------------------
+        
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
 
         // SEPARADOR DE SEÇÃO
         JSeparator separadorListaPrincipal = new JSeparator(SwingConstants.HORIZONTAL);
         separadorListaPrincipal.setForeground(Color.BLACK);
         separadorListaPrincipal.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
-
-        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
-        
         painelConteudoPrincipal.add(separadorListaPrincipal);
         
         painelConteudoPrincipal.add(Box.createVerticalStrut(10));
+
+
+        // ----------------------- AÇÕES DO CRUD -----------------------
+        JLabel labelAcoesPedidos = new JLabel("• Ações:");
+        labelAcoesPedidos.setFont(fonteAppRegular);
+        labelAcoesPedidos.setAlignmentX(Component.LEFT_ALIGNMENT);
+        painelConteudoPrincipal.add(labelAcoesPedidos);
+
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
+
+        //                 AS AÇÕES DO CRUD VÃO VIR AQUI
+
+        // ------------------ FIM DAS AÇÕES DO CRUD --------------------
+
+
+        // -------------------------------- FIM DO CONTEUDO PRINCIPAL --------------------------------
         
-        // RODAPE DA JANELA
+
+        // ------------------------------------ RODAPE DA JANELA -----------------------------------
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         painelBotao.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         this.add(painelBotao, BorderLayout.SOUTH);
@@ -116,7 +133,7 @@ public class TelaCrudPedidos extends JFrame{
                   dispose();
             }
         });
-
         painelBotao.add(botaoVoltar);
+        // -------------------------------- FIM DO RODAPE DA JANELA --------------------------------
 	}
 }
