@@ -71,7 +71,7 @@ Pronto! O projeto deve aparecer no seu "Package Explorer" e já estar configurad
 
 # 🤝 Guia de Contribuição para Iniciantes
 
-Esta é a parte mais importante! Para que você e seu colega possam trabalhar juntos sem criar conflitos ou perder código, sigam **sempre** este fluxo de trabalho.
+Esta é a parte mais importante! Para que eu e possíveis contribuidores possamos trabalhar juntos sem criar conflitos ou perder código, sigam **sempre** este fluxo de trabalho.
 
 ## **Passo a Passo para fazer alterações no código:**
 
