@@ -60,17 +60,14 @@ public class TelaCrudProdutos extends JFrame {
         painelConteudoPrincipal.add(labelTituloTabelaProdutos);
         painelConteudoPrincipal.add(Box.createVerticalStrut(15));
         
-        String[] camposProdutos = {"ID",
-	        "Nome",
-	        "Tipo",
-	        "Preço Unitário",
-	        "Descrição"
-	    };
+        String[] camposProdutos = {"ID", "Nome", "Tipo", "Preço Unitário", "Descrição"};
 
- 		ProdutoDAO produtoDAO = new ProdutoDAO();
+ 		// puxa a lista de produtos
+        ProdutoDAO produtoDAO = new ProdutoDAO();
  		List<Produto> listaProdutos = produtoDAO.listarProdutos();
 
- 		Object[][] dadosProdutos = new Object[listaProdutos.size()][5];
+ 		// popula o objeto com a lista de produtos
+        Object[][] dadosProdutos = new Object[listaProdutos.size()][5];
  		for (int i = 0; i < listaProdutos.size(); i++) {
  			Produto p = listaProdutos.get(i);
  			dadosProdutos[i][0] = p.getId();
@@ -80,6 +77,7 @@ public class TelaCrudProdutos extends JFrame {
  			dadosProdutos[i][4] = p.getDescricao();
  		}
  		
+        // adiciona os produtos na JTable
         JTable table = new JTable(dadosProdutos, camposProdutos);
         JScrollPane scrollPane = new JScrollPane(table);
                 
@@ -91,7 +89,6 @@ public class TelaCrudProdutos extends JFrame {
         scrollPane.setMaximumSize(dimensaoScrollPane);
     
         painelConteudoPrincipal.add(scrollPane);
-
 
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));

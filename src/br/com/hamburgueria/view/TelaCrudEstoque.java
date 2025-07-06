@@ -61,17 +61,14 @@ public class TelaCrudEstoque extends JFrame {
         painelConteudoPrincipal.add(labelTituloTabelaEstoque);
         painelConteudoPrincipal.add(Box.createVerticalStrut(15));
         
-        String[] camposEstoque = {"ID do item",
-	        "Nome",
-	        "Quantidade",
-	        "Validade",
-	        "ID do fornecedor"
-	    };
+        String[] camposEstoque = {"ID do item", "Nome", "Quantidade", "Validade", "ID do fornecedor"};
 
- 		InsumoDAO insumoDAO = new InsumoDAO();
+ 		// puxa a lista de insumos
+        InsumoDAO insumoDAO = new InsumoDAO();
  		List<Insumo> listaInsumos = insumoDAO.listarInsumos();
 
- 		Object[][] dadosInsumos = new Object[listaInsumos.size()][5];
+ 		// popula o objeto com a lista de insumos
+        Object[][] dadosInsumos = new Object[listaInsumos.size()][5];
  		for (int i = 0; i < listaInsumos.size(); i++) {
  			Insumo p = listaInsumos.get(i);
  			dadosInsumos[i][0] = p.getId();
@@ -81,6 +78,7 @@ public class TelaCrudEstoque extends JFrame {
  			dadosInsumos[i][4] = p.getIdFornecedor();
  		}
  		
+        // adiciona os insumos na JTable
         JTable table = new JTable(dadosInsumos, camposEstoque);
         JScrollPane scrollPane = new JScrollPane(table);
                 
