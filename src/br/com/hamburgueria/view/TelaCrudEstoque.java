@@ -83,6 +83,14 @@ public class TelaCrudEstoque extends JFrame {
  		
         JTable table = new JTable(dadosInsumos, camposEstoque);
         JScrollPane scrollPane = new JScrollPane(table);
+                
+        // configura o tamanho máximo da tabela para 10 registros
+        int alturaLinha = table.getRowHeight();
+        int alturaTabelaMaxima = alturaLinha * 10;
+        Dimension dimensaoScrollPane = new Dimension(Integer.MAX_VALUE, alturaTabelaMaxima);
+        scrollPane.setPreferredSize(dimensaoScrollPane);
+        scrollPane.setMaximumSize(dimensaoScrollPane);
+    
         painelConteudoPrincipal.add(scrollPane);
         
         // RODAPE DA JANELA

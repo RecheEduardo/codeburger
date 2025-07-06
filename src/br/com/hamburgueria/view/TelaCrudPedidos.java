@@ -60,16 +60,14 @@ public class TelaCrudPedidos extends JFrame{
         painelConteudoPrincipal.add(labelTituloTabelaPedidos);
         painelConteudoPrincipal.add(Box.createVerticalStrut(15));
         
-        String[] camposPedidos = {"ID",
-	        "ID do Usuário",
-	        "Data do Pedido",
-	        "Status atual",
-	    };
+        String[] camposPedidos = {"ID", "ID do Usuário", "Data do Pedido", "Status atual"};
 
- 		PedidoDAO pedidoDAO = new PedidoDAO();
+ 		// puxa a lista de pedidos
+        PedidoDAO pedidoDAO = new PedidoDAO();
  		List<Pedido> listaPedidos = pedidoDAO.listarPedidos();
 
- 		Object[][] dadosPedidos = new Object[listaPedidos.size()][5];
+ 		// popula o objeto com a lista de pedidos
+        Object[][] dadosPedidos = new Object[listaPedidos.size()][5];
  		for (int i = 0; i < listaPedidos.size(); i++) {
  			Pedido p = listaPedidos.get(i);
  			dadosPedidos[i][0] = p.getId();
@@ -78,8 +76,17 @@ public class TelaCrudPedidos extends JFrame{
  			dadosPedidos[i][3] = p.getStatusPedido();
  		}
  		
+        // adiciona os pedidos na JTable
         JTable table = new JTable(dadosPedidos, camposPedidos);
         JScrollPane scrollPane = new JScrollPane(table);
+        
+        // configura o tamanho máximo da tabela para 10 registros
+        int alturaLinha = table.getRowHeight();
+        int alturaTabelaMaxima = alturaLinha * 10;
+        Dimension dimensaoScrollPane = new Dimension(Integer.MAX_VALUE, alturaTabelaMaxima);
+        scrollPane.setPreferredSize(dimensaoScrollPane);
+        scrollPane.setMaximumSize(dimensaoScrollPane);
+       
         painelConteudoPrincipal.add(scrollPane);
 
         // RODAPE DA JANELA

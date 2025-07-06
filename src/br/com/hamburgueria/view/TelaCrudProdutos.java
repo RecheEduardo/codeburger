@@ -82,6 +82,14 @@ public class TelaCrudProdutos extends JFrame {
  		
         JTable table = new JTable(dadosProdutos, camposProdutos);
         JScrollPane scrollPane = new JScrollPane(table);
+                
+        // configura o tamanho máximo da tabela para 10 registros
+        int alturaLinha = table.getRowHeight();
+        int alturaTabelaMaxima = alturaLinha * 10;
+        Dimension dimensaoScrollPane = new Dimension(Integer.MAX_VALUE, alturaTabelaMaxima);
+        scrollPane.setPreferredSize(dimensaoScrollPane);
+        scrollPane.setMaximumSize(dimensaoScrollPane);
+    
         painelConteudoPrincipal.add(scrollPane);
 
 
