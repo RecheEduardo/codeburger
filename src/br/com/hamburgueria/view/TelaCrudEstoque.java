@@ -30,22 +30,22 @@ public class TelaCrudEstoque extends JFrame {
         JPanel painelConteudo = new JPanel();
         painelConteudo.setLayout(new BoxLayout(painelConteudo, BoxLayout.Y_AXIS));
         painelConteudo.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        this.add(painelConteudo, BorderLayout.CENTER); // Add o painel de conteúdo principal ao centro
+        this.add(painelConteudo, BorderLayout.CENTER);
+
+        // HEADER DA JANELA
+        JLabel labelTitulo = new JLabel("<html>Operações de Estoque</html>");
+        labelTitulo.setFont(fonteAppBold);
+        labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
+        painelConteudo.add(labelTitulo);
+
+        painelConteudo.add(Box.createVerticalStrut(15));
         
         // SEPARADOR DE SEÇÃO
         JSeparator separador = new JSeparator(SwingConstants.HORIZONTAL);
         separador.setForeground(Color.BLACK);
         separador.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1)); // faz a linha preencher horizontalmente
-
-        // HEADER PRINCIPAL
-        JLabel labelTitulo = new JLabel("<html>Operações de Estoque</html>");
-        labelTitulo.setFont(fonteAppBold);
-        labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
-        painelConteudo.add(labelTitulo);
-        painelConteudo.add(Box.createVerticalStrut(15));
-        
         painelConteudo.add(separador);
+
         painelConteudo.add(Box.createVerticalStrut(10));
 
         // CONTEUDO PRINCIPAL
@@ -53,7 +53,7 @@ public class TelaCrudEstoque extends JFrame {
         painelConteudoPrincipal.setLayout(new BoxLayout(painelConteudoPrincipal, BoxLayout.Y_AXIS));
         painelConteudo.add(painelConteudoPrincipal);
 
-        // TABELA DO ESTOQUE
+        // -------------------- TABELA DO ESTOQUE --------------------
         JLabel labelTituloTabelaEstoque = new JLabel("• Tabela de Estoque:");
         labelTituloTabelaEstoque.setFont(fonteAppRegular);
         labelTituloTabelaEstoque.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -90,11 +90,24 @@ public class TelaCrudEstoque extends JFrame {
         scrollPane.setMaximumSize(dimensaoScrollPane);
     
         painelConteudoPrincipal.add(scrollPane);
+        // ----------------- FIM DA TABELA DO ESTOQUE -----------------
+
+        // SEPARADOR DE SEÇÃO
+        JSeparator separadorListaPrincipal = new JSeparator(SwingConstants.HORIZONTAL);
+        separadorListaPrincipal.setForeground(Color.BLACK);
+        separadorListaPrincipal.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
+
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
+        
+        painelConteudoPrincipal.add(separadorListaPrincipal);
+
+        painelConteudoPrincipal.add(Box.createVerticalStrut(10));
         
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         painelBotao.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-
+        this.add(painelBotao, BorderLayout.SOUTH);
+        
         // BOTAO DE VOLTAR
         JButton botaoVoltar = new JButton("Voltar");
         botaoVoltar.setFont(fonteAppBold);
@@ -107,6 +120,5 @@ public class TelaCrudEstoque extends JFrame {
         });
         
         painelBotao.add(botaoVoltar);
-        this.add(painelBotao, BorderLayout.SOUTH);
 	}
 }

@@ -29,22 +29,22 @@ public class TelaCrudProdutos extends JFrame {
         JPanel painelConteudo = new JPanel();
         painelConteudo.setLayout(new BoxLayout(painelConteudo, BoxLayout.Y_AXIS));
         painelConteudo.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        this.add(painelConteudo, BorderLayout.CENTER); // Add o painel de conteúdo principal ao centro
+        this.add(painelConteudo, BorderLayout.CENTER);
+        
+        // HEADER DA JANELA
+        JLabel labelTitulo = new JLabel("<html>Operações de Produtos</html>");
+        labelTitulo.setFont(fonteAppBold);
+        labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
+        painelConteudo.add(labelTitulo);
+        
+        painelConteudo.add(Box.createVerticalStrut(15));
 
         // SEPARADOR DE SEÇÃO
         JSeparator separador = new JSeparator(SwingConstants.HORIZONTAL);
         separador.setForeground(Color.BLACK);
         separador.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1)); // faz a linha preencher horizontalmente
-
-        // HEADER PRINCIPAL
-        JLabel labelTitulo = new JLabel("<html>Operações de Produtos</html>");
-        labelTitulo.setFont(fonteAppBold);
-        labelTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        painelConteudo.add(labelTitulo);
-        painelConteudo.add(Box.createVerticalStrut(15));
-
         painelConteudo.add(separador);
+
         painelConteudo.add(Box.createVerticalStrut(10));
 
         // CONTEUDO PRINCIPAL
@@ -52,7 +52,7 @@ public class TelaCrudProdutos extends JFrame {
         painelConteudoPrincipal.setLayout(new BoxLayout(painelConteudoPrincipal, BoxLayout.Y_AXIS));
         painelConteudo.add(painelConteudoPrincipal);
        
-        // TABELA DOS PRODUTOS
+        // -------------------- TABELA DO PRODUTOS --------------------
         JLabel labelTituloTabelaProdutos = new JLabel("• Tabela de Produtos:");
         labelTituloTabelaProdutos.setFont(fonteAppRegular);
         labelTituloTabelaProdutos.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -89,6 +89,18 @@ public class TelaCrudProdutos extends JFrame {
         scrollPane.setMaximumSize(dimensaoScrollPane);
     
         painelConteudoPrincipal.add(scrollPane);
+        // ----------------- FIM DA TABELA DE PRODUTOS -----------------
+
+        // SEPARADOR DE SEÇÃO
+        JSeparator separadorListaPrincipal = new JSeparator(SwingConstants.HORIZONTAL);
+        separadorListaPrincipal.setForeground(Color.BLACK);
+        separadorListaPrincipal.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
+
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
+        
+        painelConteudoPrincipal.add(separadorListaPrincipal);
+        
+        painelConteudoPrincipal.add(Box.createVerticalStrut(10));
 
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -105,6 +117,7 @@ public class TelaCrudProdutos extends JFrame {
                   dispose();
             }
         });
+
         painelBotao.add(botaoVoltar);
 	}
 }
