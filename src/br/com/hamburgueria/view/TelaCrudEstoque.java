@@ -4,8 +4,12 @@ import javax.swing.*;
 
 import br.com.hamburgueria.model.Usuario;
 
-import java.awt.*;
+import br.com.hamburgueria.dao.InsumoDAO;
+import br.com.hamburgueria.model.Insumo;
 
+import java.util.List;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -45,10 +49,41 @@ public class TelaCrudEstoque extends JFrame {
         painelConteudo.add(Box.createVerticalStrut(10));
 
         // CONTEUDO PRINCIPAL
-        JLabel labelSubTitulo = new JLabel("O CRUD do Estoque vai acontecer aqui!");
-        labelSubTitulo.setFont(fonteAppRegular);
-        labelSubTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
-        painelConteudo.add(labelSubTitulo);
+        JPanel painelConteudoPrincipal = new JPanel();
+        painelConteudoPrincipal.setLayout(new BoxLayout(painelConteudoPrincipal, BoxLayout.Y_AXIS));
+        painelConteudo.add(painelConteudoPrincipal);
+
+        // TABELA DO ESTOQUE
+        JLabel labelTituloTabelaEstoque = new JLabel("• Tabela de Estoque:");
+        labelTituloTabelaEstoque.setFont(fonteAppRegular);
+        labelTituloTabelaEstoque.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        painelConteudoPrincipal.add(labelTituloTabelaEstoque);
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
+        
+        String[] camposEstoque = {"ID do item",
+	        "Nome",
+	        "Quantidade",
+	        "Validade",
+	        "ID do fornecedor"
+	    };
+
+ 		InsumoDAO insumoDAO = new InsumoDAO();
+ 		List<Insumo> listaInsumos = insumoDAO.listarInsumos();
+
+ 		Object[][] dadosInsumos = new Object[listaInsumos.size()][5];
+ 		for (int i = 0; i < listaInsumos.size(); i++) {
+ 			Insumo p = listaInsumos.get(i);
+ 			dadosInsumos[i][0] = p.getId();
+ 			dadosInsumos[i][1] = p.getNome();
+ 			dadosInsumos[i][2] = p.getQuantidade();
+ 			dadosInsumos[i][3] = p.getValidade();
+ 			dadosInsumos[i][4] = p.getIdFornecedor();
+ 		}
+ 		
+        JTable table = new JTable(dadosInsumos, camposEstoque);
+        JScrollPane scrollPane = new JScrollPane(table);
+        painelConteudoPrincipal.add(scrollPane);
         
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));

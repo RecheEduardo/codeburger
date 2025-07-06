@@ -34,7 +34,7 @@ CREATE TABLE estoque (
 );
 
 INSERT INTO usuarios (nomeUsuario, loginUsuario, senhaUsuario) VALUES 
-('Cleber', 'CleberSilvaProfessor', '1234'),
+('Cleber', 'CleberProfessor', '1234'),
 ('Eduardo', 'Eduardo', '1234'),
 ('Daniel', 'Daniel', '1234');
 
@@ -43,8 +43,34 @@ INSERT INTO produtos (nomeProduto, tipoProduto, preco, descricao) VALUES
 ('Cheddar Bacon', 'Sanduíche', 24.90, 'Pão australiano, hambúrguer 180g, cheddar cremoso e bacon crocante'),
 ('Batata Rústica', 'Acompanhamento', 12.00, 'Batatas com casca temperadas com páprica e ervas'),
 ('Refrigerante Lata', 'Bebida', 6.00, 'Coca-Cola, Guaraná ou Sprite - 350ml'),
-('Milkshake Oreo', 'Sobremesa', 16.50, 'Milkshake de baunilha com pedaços de Oreo e chantilly');
+('Milkshake Oreo', 'Sobremesa', 16.50, 'Milkshake de baunilha com pedaços de Oreo e chantilly'),
+('Double Smash', 'Sanduíche', 27.90, 'Dois smash burgers de 120g, queijo prato, cebola caramelizada e molho especial'),
+('Chicken Crispy', 'Sanduíche', 22.90, 'Frango empanado crocante, alface, tomate e maionese da casa'),
+('Onion Rings', 'Acompanhamento', 11.00, 'Anéis de cebola empanados e fritos, servidos com molho barbecue'),
+('Nuggets Artesanais', 'Acompanhamento', 13.00, 'Porção com 8 unidades de nuggets de frango caseiro'),
+('Água Mineral', 'Bebida', 4.00, 'Garrafa de 500ml com ou sem gás'),
+('Refrigerante 1L', 'Bebida', 9.00, 'Coca-Cola ou Guaraná Antarctica 1 litro'),
+('Milkshake Morango', 'Sobremesa', 15.00, 'Milkshake com sorvete de morango e calda especial'),
+('Brownie com Sorvete', 'Sobremesa', 17.50, 'Brownie artesanal servido com bola de sorvete de creme'),
+('Combo Clássico', 'Combo', 34.90, 'Burger Clássico + Batata Rústica + Refrigerante Lata'),
+('Combo Chicken', 'Combo', 36.90, 'Chicken Crispy + Onion Rings + Refrigerante Lata');
 
+INSERT INTO estoque (nomeItem, quantidade, validade, idFornecedor) VALUES
+('Pão Brioche', 200, '2025-07-20', 1),
+('Carne Bovina 180g', 150, '2025-07-15', 2),
+('Queijo Cheddar', 100, '2025-07-18', 3),
+('Bacon Fatiado', 80, '2025-07-12', 4),
+('Alface Americana', 50, '2025-07-08', 5),
+('Tomate Italiano', 60, '2025-07-09', 5),
+('Batata Rústica', 120, '2025-07-30', 6),
+('Óleo de Soja', 30, '2026-01-01', 7),
+('Pão Australiano', 100, '2025-07-22', 1),
+('Refrigerante Cola', 90, '2025-12-31', 8),
+('Refrigerante Guaraná', 70, '2025-12-31', 8),
+('Milkshake Baunilha', 40, '2025-08-10', 9),
+('Oreo Triturado', 35, '2025-08-15', 9),
+('Maionese da Casa', 60, '2025-07-14', 3),
+('Molho Barbecue', 50, '2025-07-25', 3);
 
 SELECT * FROM usuarios;
 
