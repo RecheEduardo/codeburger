@@ -2,9 +2,12 @@ package br.com.hamburgueria.view;
 
 import javax.swing.*;
 
+import br.com.hamburgueria.dao.PedidoDAO;
+import br.com.hamburgueria.model.Pedido;
 import br.com.hamburgueria.model.Usuario;
 
 import java.awt.*;
+import java.util.List;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,10 +48,39 @@ public class TelaCrudPedidos extends JFrame{
         painelConteudo.add(Box.createVerticalStrut(10));
 
         // CONTEUDO PRINCIPAL
-        JLabel labelSubTitulo = new JLabel("O CRUD dos Pedidos vai acontecer aqui!");
-        labelSubTitulo.setFont(fonteAppRegular);
-        labelSubTitulo.setAlignmentX(Component.LEFT_ALIGNMENT);
-        painelConteudo.add(labelSubTitulo);
+        JPanel painelConteudoPrincipal = new JPanel();
+        painelConteudoPrincipal.setLayout(new BoxLayout(painelConteudoPrincipal, BoxLayout.Y_AXIS));
+        painelConteudo.add(painelConteudoPrincipal);
+
+        // TABELA DOS PEDIDOS
+        JLabel labelTituloTabelaPedidos = new JLabel("• Tabela de Pedidos:");
+        labelTituloTabelaPedidos.setFont(fonteAppRegular);
+        labelTituloTabelaPedidos.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        painelConteudoPrincipal.add(labelTituloTabelaPedidos);
+        painelConteudoPrincipal.add(Box.createVerticalStrut(15));
+        
+        String[] camposPedidos = {"ID",
+	        "ID do Usuário",
+	        "Data do Pedido",
+	        "Status atual",
+	    };
+
+ 		PedidoDAO pedidoDAO = new PedidoDAO();
+ 		List<Pedido> listaPedidos = pedidoDAO.listarPedidos();
+
+ 		Object[][] dadosPedidos = new Object[listaPedidos.size()][5];
+ 		for (int i = 0; i < listaPedidos.size(); i++) {
+ 			Pedido p = listaPedidos.get(i);
+ 			dadosPedidos[i][0] = p.getId();
+ 			dadosPedidos[i][1] = p.getIdUsuario();
+ 			dadosPedidos[i][2] = p.getDataPedido();
+ 			dadosPedidos[i][3] = p.getStatusPedido();
+ 		}
+ 		
+        JTable table = new JTable(dadosPedidos, camposPedidos);
+        JScrollPane scrollPane = new JScrollPane(table);
+        painelConteudoPrincipal.add(scrollPane);
 
         // RODAPE DA JANELA
         JPanel painelBotao = new JPanel(new FlowLayout(FlowLayout.RIGHT));

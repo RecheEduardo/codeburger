@@ -1,3 +1,4 @@
+DROP DATABASE hamburgueria_db;
 CREATE DATABASE IF NOT EXISTS hamburgueria_db;
 USE hamburgueria_db;
 
@@ -73,5 +74,3 @@ INSERT INTO estoque (nomeItem, quantidade, validade, idFornecedor) VALUES
 ('Molho Barbecue', 50, '2025-07-25', 3);
 
 SELECT * FROM usuarios;
-
-DROP DATABASE hamburgueria_db;
