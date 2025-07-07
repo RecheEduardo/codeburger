@@ -39,7 +39,7 @@ public class TelaCrudPedidos extends JFrame {
         this.usuarioLogado = usuario;
         this.setTitle("Controle de Pedidos");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(900, 650);
+        this.setSize(900, 750);
         this.setLocationRelativeTo(null);
 
         this.setLayout(new BorderLayout());
@@ -68,7 +68,7 @@ public class TelaCrudPedidos extends JFrame {
         painelConteudo.add(separador);
         // -------------------------------- FIM DO HEADER DA JANELA -------------------------
 
-        painelConteudo.add(Box.createVerticalStrut(10));
+        painelConteudo.add(Box.createVerticalStrut(5));
 
         // -------------------------------- CONTEUDO PRINCIPAL --------------------------------
         JPanel painelConteudoPrincipal = new JPanel();

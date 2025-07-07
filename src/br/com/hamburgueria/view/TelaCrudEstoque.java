@@ -38,7 +38,7 @@ public class TelaCrudEstoque extends JFrame {
     public TelaCrudEstoque(Usuario usuario) {
         this.setTitle("Controle de Estoque");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(900, 650);
+        this.setSize(900, 750);
         this.setLocationRelativeTo(null);
 
         this.setLayout(new BorderLayout());
@@ -67,7 +67,7 @@ public class TelaCrudEstoque extends JFrame {
         painelConteudo.add(separador);
         // -------------------------------- FIM DO HEADER DA JANELA -------------------------
 
-        painelConteudo.add(Box.createVerticalStrut(10));
+        painelConteudo.add(Box.createVerticalStrut(5));
 
         // -------------------------------- CONTEUDO PRINCIPAL --------------------------------
         JPanel painelConteudoPrincipal = new JPanel();
